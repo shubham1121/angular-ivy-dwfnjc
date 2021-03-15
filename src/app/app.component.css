@@ -55,9 +55,23 @@
     font-size: x-large;
     padding-left: 15px;
   }
-  .main_body
-  { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 25px;
-    padding-left: 30px;
-    font-size:medium;
+  .details{
+    padding-top: 20px ;
+    text-align: center;
   }
+  .form-control
+  { width: min-content;
+
+  }
+.mycontainer{
+  padding-left: 30%;
+}
+
+.back-violet {
+  border-color: #9e6df7;
+  background-color:#9e6df7 ;
+}
+.back-black{
+  border-color: #323433;
+  background-color: #323433;
+}
