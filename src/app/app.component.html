@@ -11,7 +11,7 @@
     <div class="top_head_band pb-2">
         <span class="top_heading">Hello</span>
         <br>
-        <input name="name" class="form-control ml-3 top-input">
+        <input name="name"  (keyup)="updateName(inputName.value)"class="form-control ml-3 top-input" [value]=inputNameUpdate #inputName>
     </div>
     <div class="sub_head_band">
         <ul>
@@ -50,7 +50,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label"> <strong>Name</strong></label>
                     <div class="col-sm-10">
-                        <input name="name" class="form-control" id="inputName">
+                        <input name="name" (keyup)="updateName(inputName.value)"  [value]=inputNameUpdate class="form-control" #inputName>
                     </div>
                 </div>
                 <div class="form-group row">

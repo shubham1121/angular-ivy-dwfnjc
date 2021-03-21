@@ -8,4 +8,9 @@ import { Component, VERSION } from '@angular/core';
 export class AppComponent  {
   name = 'Angular ' + VERSION.major;
   isVisibleUser=false;
+  inputNameUpdate='';
+  updateName(val)
+  {
+    this.inputNameUpdate=val;
+  }
 }
