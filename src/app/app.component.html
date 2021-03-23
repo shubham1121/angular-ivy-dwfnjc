@@ -16,8 +16,8 @@
     <div class="sub_head_band">
         <ul>
             <div class="link-section">
-                <li> <a   (click)="isVisibleUser=false;"> <strong>Home</strong> </a> </li>
-                <li> <a  (click)="isVisibleUser=true;"><strong> +Add User </strong></a> </li>
+                <li [ngClass]="{'currentActive' : isVisibleUser}" class="currentActive"> <a   (click)="isVisibleUser=false;"> <strong>Home</strong> </a> </li>
+                <li [ngClass]="{'currentActive' : !isVisibleUser}" class="currentActive"> <a  (click)="isVisibleUser=true;"><strong> +Add User </strong></a> </li>
             </div>
             <li class="img_style">
                 <img src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png"
@@ -26,7 +26,7 @@
             <li class="nipsol-site"> www.nipsol.com</li>
         </ul>
     </div>
-    <div *ngIf="!isVisibleUser" class="home">
+    <div *ngIf="!isVisibleUser" class="home ">
         <h1 class="sub_head"><strong>Salient Features of Nipsol</strong></h1>
         <br>
         <ol type="1" class="main_body">
