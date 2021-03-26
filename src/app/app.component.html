@@ -9,15 +9,16 @@
 
 <body>
     <div class="top_head_band pb-2">
-        <span class="top_heading">Hello</span>
+        <span class="top_heading">nipsol</span>
         <br>
-        <input name="name"  (keyup)="updateName(inputName.value)"class="form-control ml-3 top-input" [value]=inputNameUpdate #inputName>
+         <span class="top_sub_heading">CONTACTLESS ORDERING</span>
     </div>
     <div class="sub_head_band">
         <ul>
             <div class="link-section">
-                <li [ngClass]="{'currentActive' : isVisibleUser}" class="currentActive"> <a   (click)="isVisibleUser=false;"> <strong>Home</strong> </a> </li>
-                <li [ngClass]="{'currentActive' : !isVisibleUser}" class="currentActive"> <a  (click)="isVisibleUser=true;"><strong> +Add User </strong></a> </li>
+                <li [ngClass]="{'currentActive' : visibleUser==1?false:true}" class="currentActive"> <a   (click)="visibleUser=1;"> <strong>Home</strong> </a> </li>
+                <li [ngClass]="{'currentActive' : visibleUser==2?false:true}" class="currentActive"> <a  (click)="visibleUser=2;"><strong> +Add User </strong></a> </li>
+                <li [ngClass]="{'currentActive' : visibleUser==3?false:true}" class="currentActive"> <a  (click)="visibleUser=3;"><strong> ALL USERS </strong></a> </li>
             </div>
             <li class="img_style">
                 <img src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png"
@@ -26,7 +27,7 @@
             <li class="nipsol-site"> www.nipsol.com</li>
         </ul>
     </div>
-    <div *ngIf="!isVisibleUser" class="home ">
+    <div *ngIf="visibleUser==1" class="home ">
         <h1 class="sub_head"><strong>Salient Features of Nipsol</strong></h1>
         <br>
         <ol type="1" class="main_body">
@@ -40,35 +41,37 @@
         </ol>
     </div>
 
-    <div *ngIf="isVisibleUser" class="add-user">
+    <div *ngIf="visibleUser==2" class="add-user">
         <div>
             <h1 class="sub_head"> <strong>User Registration</strong></h1>
         </div>
 
         <div class="container mycontainer">
-            <form>
+            <form [formGroup]="userDetails" (ngSubmit)="collectData()">
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label"> <strong>Name</strong></label>
                     <div class="col-sm-10">
-                        <input name="name"   [value]=inputNameUpdate class="form-control" #inputName>
+                        <input name="name"   [value]=inputNameUpdate formControlName="userName" class="form-control" #inputName>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label"><strong>Email</strong></label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3">
+                        <input type="email" formControlName="userEmail" class="form-control" id="inputEmail3">
+                        <span class="validation-msg"*ngIf="email.invalid &&email.touched">Email can't be left empty</span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPhone" class="col-sm-2 col-form-label"><strong>Phone</strong></label>
                     <div class="col-sm-10">
-                        <input type="tel" class="form-control" id="inputPhone">
+                        <input type="tel" formControlName="userPhone" class="form-control" id="inputPhone">
+                        <span class="validation-msg"*ngIf="phone.invalid &&phone.touched">Invalid Mobile Number</span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputAddress" class="col-sm-2 col-form-label"><strong>Address</strong></label>
                     <div class="col-sm-10">
-                        <input type="address" class="form-control" id="inputAddress">
+                        <input type="address" formControlName="userAddress" class="form-control" id="inputAddress">
                     </div>
                 </div>
                 <fieldset class="form-group">
@@ -104,5 +107,8 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div *ngIf="visibleUser==3" class="all-users">
+       
     </div>
 </body>
