@@ -1,114 +1,131 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="app.component.css">
-    <title>Home</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.component.css">
+  <title>Home</title>
 </head>
 
 <body>
-    <div class="top_head_band pb-2">
-        <span class="top_heading">nipsol</span>
-        <br>
-         <span class="top_sub_heading">CONTACTLESS ORDERING</span>
-    </div>
-    <div class="sub_head_band">
-        <ul>
-            <div class="link-section">
-                <li [ngClass]="{'currentActive' : visibleUser==1?false:true}" class="currentActive"> <a   (click)="visibleUser=1;"> <strong>Home</strong> </a> </li>
-                <li [ngClass]="{'currentActive' : visibleUser==2?false:true}" class="currentActive"> <a  (click)="visibleUser=2;"><strong> +Add User </strong></a> </li>
-                <li [ngClass]="{'currentActive' : visibleUser==3?false:true}" class="currentActive"> <a  (click)="visibleUser=3;"><strong> ALL USERS </strong></a> </li>
-            </div>
-            <li class="img_style">
-                <img src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png"
+  <div class="top_head_band pb-2">
+    <span class="top_heading">nipsol</span>
+    <br>
+    <span class="top_sub_heading">CONTACTLESS ORDERING</span>
+  </div>
+  <div class="sub_head_band">
+    <ul>
+      <div class="link-section">
+        <li [ngClass]="{'currentActive' : visibleUser==1?false:true}" class="currentActive"> <a
+            (click)="visibleUser=1;"> <strong>Home</strong> </a> </li>
+        <li [ngClass]="{'currentActive' : visibleUser==2?false:true}" class="currentActive"> <a
+            (click)="visibleUser=2;"><strong> +Add User </strong></a> </li>
+        <li [ngClass]="{'currentActive' : visibleUser==3?false:true}" class="currentActive"> <a
+            (click)="visibleUser=3;"><strong> ALL USERS </strong></a> </li>
+      </div>
+      <li class="img_style">
+        <img src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png"
                     alt="nipsol">
-            </li>
-            <li class="nipsol-site"> www.nipsol.com</li>
-        </ul>
-    </div>
-    <div *ngIf="visibleUser==1" class="home ">
-        <h1 class="sub_head"><strong>Salient Features of Nipsol</strong></h1>
-        <br>
-        <ol type="1" class="main_body">
-            <li>It offers Platform Independent application for all restaurant food odering needs.</li>
-            <li>A nipsol certified restaurant is marked as safe to dine by most customers accross India.</li>
-            <li>Nipsol Payment System can be Integrated at 0% charges.</li>
-            <li>With QR-Based Ordering and e-Invoice functionality, human intervention is reduced considerably making it
-                a contacless alternative to conventional orderign mechanisms.</li>
-            <li>Currently Nipsol has marked its presence in over 50 restaurants/Cafes accross 50 cities within a span of
-                8 weeks since its launch.</li>
-        </ol>
+      </li>
+      <li class="nipsol-site"> www.nipsol.com</li>
+    </ul>
+  </div>
+  <div *ngIf="visibleUser==1" class="home ">
+    <h1 class="sub_head"><strong>Salient Features of Nipsol</strong></h1>
+    <br>
+    <ol type="1" class="main_body">
+      <li>It offers Platform Independent application for all restaurant food odering needs.</li>
+      <li>A nipsol certified restaurant is marked as safe to dine by most customers accross India.</li>
+      <li>Nipsol Payment System can be Integrated at 0% charges.</li>
+      <li>With QR-Based Ordering and e-Invoice functionality, human intervention is reduced considerably making it
+        a contacless alternative to conventional orderign mechanisms.</li>
+      <li>Currently Nipsol has marked its presence in over 50 restaurants/Cafes accross 50 cities within a span of
+        8 weeks since its launch.</li>
+    </ol>
+  </div>
+
+  <div *ngIf="visibleUser==2" class="add-user">
+    <div>
+      <h1 class="sub_head"> <strong>User Registration</strong></h1>
     </div>
 
-    <div *ngIf="visibleUser==2" class="add-user">
-        <div>
-            <h1 class="sub_head"> <strong>User Registration</strong></h1>
+    <div class="container mycontainer">
+      <form [formGroup]="userDetails" (ngSubmit)="collectData()">
+        <div class="form-group row">
+          <label for="inputName" class="col-sm-2 col-form-label"> <strong>Name</strong></label>
+          <div class="col-sm-10">
+            <input name="name"   [value]=inputNameUpdate formControlName="userName" class="form-control" #inputName>
+          </div>
         </div>
-
-        <div class="container mycontainer">
-            <form [formGroup]="userDetails" (ngSubmit)="collectData()">
-                <div class="form-group row">
-                    <label for="inputName" class="col-sm-2 col-form-label"> <strong>Name</strong></label>
-                    <div class="col-sm-10">
-                        <input name="name"   [value]=inputNameUpdate formControlName="userName" class="form-control" #inputName>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label"><strong>Email</strong></label>
-                    <div class="col-sm-10">
-                        <input type="email" formControlName="userEmail" class="form-control" id="inputEmail3">
-                        <span class="validation-msg"*ngIf="email.invalid &&email.touched">Email can't be left empty</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputPhone" class="col-sm-2 col-form-label"><strong>Phone</strong></label>
-                    <div class="col-sm-10">
-                        <input type="tel" formControlName="userPhone" class="form-control" id="inputPhone">
-                        <span class="validation-msg"*ngIf="phone.invalid &&phone.touched">Invalid Mobile Number</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputAddress" class="col-sm-2 col-form-label"><strong>Address</strong></label>
-                    <div class="col-sm-10">
-                        <input type="address" formControlName="userAddress" class="form-control" id="inputAddress">
-                    </div>
-                </div>
-                <fieldset class="form-group">
-                    <div class="row">
-                        <legend class="col-form-label col-sm-2 pt-0 "> <strong>Gender</strong> </legend>
-                        <div class="col-sm-10 d-flex">
-                            <div class="form-check d-flex">
-                                <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios1"
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label"><strong>Email</strong></label>
+          <div class="col-sm-10">
+            <input type="email" formControlName="userEmail" class="form-control" id="inputEmail3">
+            <span class="validation-msg"*ngIf="email.invalid &&email.touched">Email can't be left empty</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPhone" class="col-sm-2 col-form-label"><strong>Phone</strong></label>
+          <div class="col-sm-10">
+            <input type="tel" formControlName="userPhone" class="form-control" id="inputPhone">
+            <span class="validation-msg"*ngIf="phone.invalid &&phone.touched">Invalid Mobile Number</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputAddress" class="col-sm-2 col-form-label"><strong>Address</strong></label>
+          <div class="col-sm-10">
+            <input type="address" formControlName="userAddress" class="form-control" id="inputAddress">
+          </div>
+        </div>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0 "> <strong>Gender</strong> </legend>
+            <div class="col-sm-10 d-flex">
+              <div class="form-check d-flex">
+                <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios1"
                                     value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
+                <label class="form-check-label" for="gridRadios1">
                                     <strong>Male</strong>
                                 </label>
-                            </div>
-                            <div class="form-check ml-3 ">
-                                <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios2"
+              </div>
+              <div class="form-check ml-3 ">
+                <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios2"
                                     value="option2">
-                                <label class="form-check-label" for="gridRadios2">
+                <label class="form-check-label" for="gridRadios2">
                                     <strong>Female</strong>
                                 </label>
-                            </div>
+              </div>
 
-                        </div>
-                    </div>
-                </fieldset>
+            </div>
+          </div>
+        </fieldset>
 
-                <div class="form-group ">
-                    <div class="col-sm-10">
-                        <button type="reset" class="btn btn-primary  px-5  back-black">Reset
+        <div class="form-group ">
+          <div class="col-sm-10">
+            <button type="reset" class="btn btn-primary  px-5  back-black">Reset
                         </button>
-                        <button type="submit" class="btn btn-primary  px-5 ml-3 back-violet">Submit
+            <button type="submit" class="btn btn-primary  px-5 ml-3 back-violet">Submit
                         </button>
-                    </div>
-                </div>
-            </form>
+          </div>
         </div>
+      </form>
     </div>
-    <div *ngIf="visibleUser==3" class="all-users">
-       
+  </div>
+  <div *ngIf="visibleUser==3" class="all-users">
+    <div>
+    <div class="row pt-4 pl-3 myShadow">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4>John </h4>
+            <h4>John@gmail.com </h4>
+            <h4>7067747798</h4>
+            <h4>Barkatullah</h4>
+          </div>
+        </div>
+      </div>
     </div>
+    </div>
+
+  </div>
 </body>
