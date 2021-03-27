@@ -13,11 +13,14 @@ export class AppComponent  {
     userPhone: new FormControl('',[Validators.required, Validators.pattern("[0-9 ]{10}")]),
     userAddress: new FormControl(),
   }) 
+  userData=[];
+  
   get email(){return this.userDetails.get('userEmail');}
   get phone(){return this.userDetails.get('userPhone');}
+
   collectData()
   {
-    
+    this.userData.push(this.userDetails.value);
   }
   
   visibleUser=1;
