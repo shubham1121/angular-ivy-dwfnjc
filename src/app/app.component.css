@@ -132,3 +132,9 @@ a{ text-decoration: none;
   color: black;
   /* text-decoration: underline; */
 }
+.myShadow{
+  border-radius: 6px;
+  box-shadow: 10px 10px #D3D3D3;
+  border-width: 2px;
+  border-color: #C1C1C1;
+}
