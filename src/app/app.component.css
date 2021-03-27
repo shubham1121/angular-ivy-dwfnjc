@@ -138,3 +138,6 @@ a{ text-decoration: none;
   border-width: 2px;
   border-color: #C1C1C1;
 }
+.container_flex{
+  flex:1;
+}
