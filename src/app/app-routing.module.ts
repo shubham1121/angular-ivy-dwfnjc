@@ -1,0 +1,31 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from 'src/app/home/home.component';
+import { AddUserComponent } from 'src/app/add-user/add-user.component';
+import { AllUserComponent } from 'src/app/all-user/all-user.component';
+
+const routes: Routes[
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'add-user',
+    component: AddUserComponent,
+  },
+  {
+    path: 'all-user',
+    component: AllUserComponent,
+  },
+];
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule, RouterModule.forRoot(routes),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule { }
+export const routingComponents = [HomeComponent,AddUserComponent,AllUserComponent];

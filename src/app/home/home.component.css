@@ -1,0 +1,15 @@
+.sub_head{
+    padding-top: 20px;
+    font-size: x-large;
+    padding-left: 20px;
+  }
+  .home
+  { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 25px;
+    padding-left: 30px;
+    font-size:medium;
+  }
+  ul .link-section li
+  {
+    padding: 0 12px;
+  }

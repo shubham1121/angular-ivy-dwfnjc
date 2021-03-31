@@ -40,7 +40,7 @@
   padding-bottom: 5px;
   color: white;
   }
-  .img_site{
+  /* .img_site{
     vertical-align: middle;
     padding-bottom: 40px;
     padding-top: 10px;
@@ -48,7 +48,7 @@
     font-size: 20px;
     font-weight: bold;
     color: white;
-  }
+  } */
   .img_style{
   
     display: inline-flex;
@@ -130,14 +130,10 @@ a{ text-decoration: none;
 }
 .currentActive{
   color: black;
-  /* text-decoration: underline; */
 }
 .myShadow{
   border-radius: 6px;
   box-shadow: 10px 10px #D3D3D3;
   border-width: 2px;
   border-color: #C1C1C1;
-}
-.container_flex{
-  flex:1;
 }

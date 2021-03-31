@@ -16,116 +16,22 @@
   <div class="sub_head_band">
     <ul>
       <div class="link-section">
-        <li [ngClass]="{'currentActive' : visibleUser==1?false:true}" class="currentActive"> <a
-            (click)="visibleUser=1;"> <strong>Home</strong> </a> </li>
-        <li [ngClass]="{'currentActive' : visibleUser==2?false:true}" class="currentActive"> <a
-            (click)="visibleUser=2;"><strong> +Add User </strong></a> </li>
-        <li [ngClass]="{'currentActive' : visibleUser==3?false:true}" class="currentActive"> <a
-            (click)="visibleUser=3;"><strong> ALL USERS </strong></a> </li>
+        <li [ngClass]="{'currentActive' : (router.url === '/home') || router.url === '/'}}"><a routerLink="/home">
+            <strong>Home</strong> </a> </li>
+        <li [ngClass]="{'currentActive' : (router.url === '/add-user') || router.url === '/'}}">
+          <a routerLink="/add-user"><strong> +Add User </strong></a>
+        </li>
+        <li [ngClass]="{'currentActive' : (router.url === '/all-user') || router.url === '/'}}">
+          <a routerLink="/all-user"><strong> ALL USERS </strong></a>
+        </li>
       </div>
       <li class="img_style">
-        <img src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png"
-                    alt="nipsol">
+        <img
+          src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png"
+          alt="nipsol">
       </li>
       <li class="nipsol-site"> www.nipsol.com</li>
     </ul>
   </div>
-  <div *ngIf="visibleUser==1" class="home ">
-    <h1 class="sub_head"><strong>Salient Features of Nipsol</strong></h1>
-    <br>
-    <ol type="1" class="main_body">
-      <li>It offers Platform Independent application for all restaurant food odering needs.</li>
-      <li>A nipsol certified restaurant is marked as safe to dine by most customers accross India.</li>
-      <li>Nipsol Payment System can be Integrated at 0% charges.</li>
-      <li>With QR-Based Ordering and e-Invoice functionality, human intervention is reduced considerably making it
-        a contacless alternative to conventional orderign mechanisms.</li>
-      <li>Currently Nipsol has marked its presence in over 50 restaurants/Cafes accross 50 cities within a span of
-        8 weeks since its launch.</li>
-    </ol>
-  </div>
-
-  <div *ngIf="visibleUser==2" class="add-user">
-    <div>
-      <h1 class="sub_head"> <strong>User Registration</strong></h1>
-    </div>
-
-    <div class="container mycontainer">
-      <form [formGroup]="userDetails" (ngSubmit)="collectData()">
-        <div class="form-group row">
-          <label for="inputName" class="col-sm-2 col-form-label"> <strong>Name</strong></label>
-          <div class="col-sm-10">
-            <input name="name"   [value]=inputNameUpdate formControlName="userName" class="form-control" #inputName>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label"><strong>Email</strong></label>
-          <div class="col-sm-10">
-            <input type="email" formControlName="userEmail" class="form-control" id="inputEmail3">
-            <span class="validation-msg"*ngIf="email.invalid &&email.touched">Email can't be left empty</span>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPhone" class="col-sm-2 col-form-label"><strong>Phone</strong></label>
-          <div class="col-sm-10">
-            <input type="tel" formControlName="userPhone" class="form-control" id="inputPhone">
-            <span class="validation-msg"*ngIf="phone.invalid &&phone.touched">Invalid Mobile Number</span>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputAddress" class="col-sm-2 col-form-label"><strong>Address</strong></label>
-          <div class="col-sm-10">
-            <input type="address" formControlName="userAddress" class="form-control" id="inputAddress">
-          </div>
-        </div>
-        <fieldset class="form-group">
-          <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0 "> <strong>Gender</strong> </legend>
-            <div class="col-sm-10 d-flex">
-              <div class="form-check d-flex">
-                <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios1"
-                                    value="option1" checked>
-                <label class="form-check-label" for="gridRadios1">
-                                    <strong>Male</strong>
-                                </label>
-              </div>
-              <div class="form-check ml-3 ">
-                <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios2"
-                                    value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                                    <strong>Female</strong>
-                                </label>
-              </div>
-
-            </div>
-          </div>
-        </fieldset>
-
-        <div class="form-group ">
-          <div class="col-sm-10">
-            <button type="reset" class="btn btn-primary  px-5  back-black">Reset
-                        </button>
-            <button type="submit" class="btn btn-primary  px-5 ml-3 back-violet">Submit
-                        </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div *ngIf="visibleUser==3" >
-    <div class="container">
-    <div class="row mt-3 pr-3" >
-      <div class="col-sm-6 mb-3" *ngFor="let item of userData; let i=index;" >
-        <div class="card myShadow" >
-          <div class="card-body">
-            <h4>{{i+1}}. {{item.userName}} </h4>
-            <h4>{{item.userEmail}} </h4>
-            <h4>{{item.userPhone}}</h4>
-            <h4>{{item.userAddress}}</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-  </div>
+ <router-outlet></router-outlet>
 </body>
