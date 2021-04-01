@@ -16,12 +16,12 @@
   <div class="sub_head_band">
     <ul>
       <div class="link-section">
-        <li [ngClass]="{'currentActive' : (router.url === '/home') || router.url === '/'}}"><a routerLink="/home">
+        <li [ngClass]="{'currentActive' : (router.url === '/home') || router.url === '/'}"><a routerLink="/home">
             <strong>Home</strong> </a> </li>
-        <li [ngClass]="{'currentActive' : (router.url === '/add-user') || router.url === '/'}}">
+        <li [ngClass]="{'currentActive' : (router.url === '/add-user') || router.url === '/'}">
           <a routerLink="/add-user"><strong> +Add User </strong></a>
         </li>
-        <li [ngClass]="{'currentActive' : (router.url === '/all-user') || router.url === '/'}}">
+        <li [ngClass]="{'currentActive' : (router.url === '/all-user') || router.url === '/'}">
           <a routerLink="/all-user"><strong> ALL USERS </strong></a>
         </li>
       </div>

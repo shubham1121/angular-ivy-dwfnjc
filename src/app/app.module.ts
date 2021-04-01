@@ -8,12 +8,11 @@ import { HelloComponent } from './hello.component';
 import { HomeComponent } from './home/home.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AllUserComponent } from './all-user/all-user.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { UsersService } from './users.service';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,ReactiveFormsModule, NgbModule, AppRoutingModule ],
+  imports:      [ BrowserModule, FormsModule,ReactiveFormsModule,  AppRoutingModule ],
   declarations: [ AppComponent, HelloComponent, HomeComponent, AddUserComponent, AllUserComponent, routingComponents],
   providers:[UsersService],
   bootstrap:    [ AppComponent ],

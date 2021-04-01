@@ -7,9 +7,11 @@ import { UsersService } from '../users.service';
   styleUrls: ['./all-user.component.css']
 })
 export class AllUserComponent implements OnInit {
-
-  constructor(public userService:UsersService) { }
-
+ userDetails=[];
+  constructor(private userService:UsersService) { 
+    this.userDetails.push(this.userService.userData);
+  }
+  
   ngOnInit(): void {
   }
 

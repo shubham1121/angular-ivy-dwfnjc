@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from 'src/app/home/home.component';
-import { AddUserComponent } from 'src/app/add-user/add-user.component';
-import { AllUserComponent } from 'src/app/all-user/all-user.component';
+import { HomeComponent } from './home/home.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { AllUserComponent } from './all-user/all-user.component';
 
-const routes: Routes[
+const routes: Routes=[
   {
     path: 'home',
     component: HomeComponent,
